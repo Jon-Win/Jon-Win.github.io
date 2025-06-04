@@ -1,3 +1,91 @@
+<!-- Add this below your moneyFall div -->
+<div id="eggplantFall"></div>
+
+<style>
+  /* Add to your existing styles */
+
+  #eggplantFall {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0; /* Behind moneyFall */
+  }
+
+  .eggplant {
+    position: absolute;
+    top: -4em; /* Start a bit higher */
+    color: #993399; /* Eggplant purple */
+    font-size: 3em; /* Bigger than money */
+    animation-name: slowFall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    user-select: none;
+    opacity: 0.8;
+  }
+
+  @keyframes slowFall {
+    0% {
+      transform: translateY(-4em) rotate(0deg);
+      opacity: 0.9;
+    }
+    100% {
+      transform: translateY(110vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  function createFallingEggplants() {
+    const container = document.getElementById('eggplantFall');
+    const eggplantCount = 10; // fewer and bigger
+
+    for (let i = 0; i < eggplantCount; i++) {
+      const eggplant = document.createElement('div');
+      eggplant.classList.add('eggplant');
+      eggplant.style.left = Math.random() * window.innerWidth + 'px';
+      eggplant.style.animationDuration = (Math.random() * 10 + 15) + 's'; // slower, 15-25 sec
+      eggplant.style.animationDelay = (Math.random() * 20) + 's'; // stagger start
+      eggplant.textContent = '🍆';
+      container.appendChild(eggplant);
+    }
+  }
+
+  window.onload = () => {
+    createFallingMoney();
+    createFallingEggplants();
+  };
+</script>
+What this does:
+Eggplants (🍆) fall slower, bigger, behind money (💵).
+
+Both keep looping infinitely.
+
+Eggplants have some transparency for a nice layering effect.
+
+Add this to your existing HTML + CSS + JS, and you’ll see big purple eggplants gently falling behind the green money rain! Let me know if you want me to combine everything into one full file for you.
+
+
+
+
+
+
+
+
+You said:
+can you write it for me
+
+
+ChatGPT said:
+Sure! Here's your full updated index.html with both falling money and big falling eggplants behind it, plus everything else you had:
+
+html
+Copy
+Edit
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,6 +168,41 @@
       opacity: 0;
     }
   }
+
+  /* Falling eggplants container */
+  #eggplantFall {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0; /* Behind moneyFall */
+  }
+
+  .eggplant {
+    position: absolute;
+    top: -4em; /* Start a bit higher */
+    color: #993399; /* Eggplant purple */
+    font-size: 3em; /* Bigger than money */
+    animation-name: slowFall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    user-select: none;
+    opacity: 0.8;
+  }
+
+  @keyframes slowFall {
+    0% {
+      transform: translateY(-4em) rotate(0deg);
+      opacity: 0.9;
+    }
+    100% {
+      transform: translateY(110vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
 </style>
 </head>
 <body>
@@ -92,6 +215,7 @@
   <p id="surprise" style="display:none; margin-top:20px;">🎈🎈🎈 You're the best! 🎈🎈🎈</p>
 
   <div id="moneyFall"></div>
+  <div id="eggplantFall"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -121,7 +245,25 @@
       }
     }
 
-    window.onload = createFallingMoney;
+    function createFallingEggplants() {
+      const container = document.getElementById('eggplantFall');
+      const eggplantCount = 10; // fewer and bigger
+
+      for (let i = 0; i < eggplantCount; i++) {
+        const eggplant = document.createElement('div');
+        eggplant.classList.add('eggplant');
+        eggplant.style.left = Math.random() * window.innerWidth + 'px';
+        eggplant.style.animationDuration = (Math.random() * 10 + 15) + 's'; // slower, 15-25 sec
+        eggplant.style.animationDelay = (Math.random() * 20) + 's'; // stagger start
+        eggplant.textContent = '🍆';
+        container.appendChild(eggplant);
+      }
+    }
+
+    window.onload = () => {
+      createFallingMoney();
+      createFallingEggplants();
+    };
   </script>
 </body>
 </html>
