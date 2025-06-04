@@ -9,22 +9,24 @@
     font-family: "Comic Sans MS", cursive, sans-serif;
     text-align: center;
     padding-top: 50px;
-    overflow-x: hidden; /* Prevent horizontal scrollbar from falling emojis */
+    overflow-x: hidden;
     position: relative;
+    margin: 0;
+    height: 100vh;
   }
-  h1 {
-    color: #0077b6; /* Deep blue for the header */
-    font-size: 3em;
+  h1, .cake, p, button, img {
     position: relative;
     z-index: 2;
+  }
+  h1 {
+    color: #0077b6;
+    font-size: 3em;
   }
   .cake {
     font-size: 5em;
-    position: relative;
-    z-index: 2;
   }
   button {
-    background-color: #0077b6; /* Deep blue for button */
+    background-color: #0077b6;
     color: white;
     border: none;
     border-radius: 8px;
@@ -32,29 +34,23 @@
     font-size: 1.2em;
     cursor: pointer;
     margin-top: 20px;
-    position: relative;
-    z-index: 2;
   }
   button:hover {
-    background-color: #005f87; /* Slightly darker on hover */
+    background-color: #005f87;
   }
   img {
     margin-top: 20px;
     border-radius: 12px;
     max-width: 80%;
     height: auto;
-    position: relative;
-    z-index: 2;
   }
   p {
     color: #005f87;
-    position: relative;
-    z-index: 2;
   }
 
-  /* Falling money container fixed so it stays behind content */
-  .money-fall {
-    pointer-events: none; /* Clicks pass through */
+  /* Falling money container */
+  #moneyFall {
+    pointer-events: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -64,15 +60,14 @@
     z-index: 1;
   }
 
-  /* Each falling dollar */
   .dollar {
     position: absolute;
     top: -2em;
-    font-size: 1.5em;
-    color: #2ecc71; /* green money color */
+    color: #2ecc71;
     animation-name: fall;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    user-select: none;
   }
 
   @keyframes fall {
@@ -99,14 +94,11 @@
   <button onclick="showMessage()">Click for a Surprise!</button>
   <p id="surprise" style="display:none; margin-top:20px;">🎈🎈🎈 You're the best! 🎈🎈🎈</p>
 
-  <!-- Falling money container -->
-  <div class="money-fall" id="moneyFall"></div>
+  <div id="moneyFall"></div>
 
-  <!-- Confetti library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <script>
-    // Show surprise and confetti
     function showMessage() {
       document.getElementById('surprise').style.display = 'block';
       confetti({
@@ -116,24 +108,22 @@
       });
     }
 
-    // Create multiple falling dollar elements with random positions and speeds
     function createFallingMoney() {
       const container = document.getElementById('moneyFall');
-      const dollarCount = 30; // number of dollar emojis
+      const dollarCount = 40; // more dollars for better effect
 
-      for(let i = 0; i < dollarCount; i++) {
+      for (let i = 0; i < dollarCount; i++) {
         const dollar = document.createElement('div');
         dollar.classList.add('dollar');
         dollar.style.left = Math.random() * 100 + 'vw';
-        dollar.style.fontSize = (Math.random() * 1 + 1) + 'em'; // 1em to 2em
-        dollar.style.animationDuration = (Math.random() * 5 + 5) + 's'; // 5s to 10s
+        dollar.style.fontSize = (Math.random() * 1 + 1) + 'em'; // size between 1em and 2em
+        dollar.style.animationDuration = (Math.random() * 5 + 5) + 's'; // 5-10 seconds
         dollar.style.animationDelay = (Math.random() * 10) + 's'; // stagger start
         dollar.textContent = '💵';
         container.appendChild(dollar);
       }
     }
 
-    // Start creating falling money after page loads
     window.onload = createFallingMoney;
   </script>
 </body>
