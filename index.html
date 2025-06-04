@@ -17,10 +17,6 @@
     .cake {
       font-size: 5em;
     }
-    .confetti {
-      font-size: 2em;
-      color: #ffb6c1;
-    }
     button {
       background-color: #ff69b4;
       color: white;
@@ -29,6 +25,7 @@
       padding: 10px 20px;
       font-size: 1.2em;
       cursor: pointer;
+      margin-top: 20px;
     }
     button:hover {
       background-color: #ff1493;
@@ -43,9 +40,19 @@
   <button onclick="showMessage()">Click for a Surprise!</button>
   <p id="surprise" style="display:none; margin-top:20px; color: #ff69b4;">🎈🎈🎈 You're the best! 🎈🎈🎈</p>
 
+  <!-- Confetti script library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
   <script>
     function showMessage() {
       document.getElementById('surprise').style.display = 'block';
+
+      // Launch confetti!
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
     }
   </script>
 </body>
