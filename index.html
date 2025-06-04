@@ -88,9 +88,6 @@
   <p>Have an awesome day full of adventure and fun!</p>
   <div class="cake">🎂🎂🎂🎂🎂</div>
 
-  <!-- Replace with your friend's picture -->
-  <img src="https://placekitten.com/400/300" alt="Happy Birthday to My Friend!" />
-
   <button onclick="showMessage()">Click for a Surprise!</button>
   <p id="surprise" style="display:none; margin-top:20px;">🎈🎈🎈 You're the best! 🎈🎈🎈</p>
 
@@ -115,7 +112,7 @@
       for (let i = 0; i < dollarCount; i++) {
         const dollar = document.createElement('div');
         dollar.classList.add('dollar');
-        dollar.style.left = Math.random() * 100 + 'vw';
+        dollar.style.left = Math.random() * window.innerWidth + 'px';
         dollar.style.fontSize = (Math.random() * 1 + 1) + 'em'; // size between 1em and 2em
         dollar.style.animationDuration = (Math.random() * 5 + 5) + 's'; // 5-10 seconds
         dollar.style.animationDelay = (Math.random() * 10) + 's'; // stagger start
