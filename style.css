@@ -21,14 +21,14 @@ button {
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  margin-bottom: 40px;
+  margin-bottom: 20px; /* space between button and cake */
 }
 
 /* ===== CAKE ===== */
 #cake-container {
   position: relative;
   width: 500px;
-  margin: 0 auto 50px; /* extra space so text doesn't overlap */
+  margin: 40px auto 60px; /* space above and below cake */
 }
 
 #cake {
@@ -66,7 +66,7 @@ button {
   grid-template-columns: repeat(10, 1fr);
   gap: 12px;
   justify-items: center;
-  z-index: 5;
+  z-index: 2; /* make sure candles are on top of cake but below text */
 }
 
 .candle {
