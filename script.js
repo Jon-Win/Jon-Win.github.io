@@ -1,22 +1,11 @@
-/* =========================
-   RESET STATE ON LOAD
-========================= */
+const flames = document.querySelectorAll(".flame");
+const instructions = document.getElementById("instructions");
+const startBtn = document.getElementById("startBtn");
+
 let flamePower = 1;
 let blownOut = false;
 
-const flames = document.querySelectorAll(".flame");
-const instructions = document.getElementById("instructions");
-
-// Reset flames visually
-flames.forEach(f => {
-  f.style.display = "block";
-  f.style.transform = "scale(1)";
-  f.style.opacity = "1";
-});
-
-/* =========================
-   CONFETTI SETUP
-========================= */
+/* ---------- CONFETTI ---------- */
 const canvas = document.getElementById("confetti");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
@@ -28,8 +17,8 @@ let confettiActive = false;
 function startConfetti() {
   if (confettiActive) return;
   confettiActive = true;
-
   confetti = [];
+
   for (let i = 0; i < 250; i++) {
     confetti.push({
       x: Math.random() * canvas.width,
@@ -43,7 +32,6 @@ function startConfetti() {
 
 function drawConfetti() {
   if (!confettiActive) return;
-
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   confetti.forEach(c => {
     ctx.beginPath();
@@ -56,12 +44,16 @@ function drawConfetti() {
   requestAnimationFrame(drawConfetti);
 }
 
-/* =========================
-   MICROPHONE BLOW LOGIC
-========================= */
-navigator.mediaDevices.getUserMedia({ audio: true })
-  .then(stream => {
+/* ---------- START BUTTON (CRITICAL FIX) ---------- */
+startBtn.addEventListener("click", () => {
+  startBtn.style.display = "none";
+  instructions.innerHTML =
+    "🎤 Blow into your mic to slowly put out the candles!";
+
+  navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
     const audioContext = new AudioContext();
+    audioContext.resume(); // 🔑 Chrome fix
+
     const mic = audioContext.createMediaStreamSource(stream);
     const analyser = audioContext.createAnalyser();
     analyser.fftSize = 256;
@@ -94,15 +86,10 @@ navigator.mediaDevices.getUserMedia({ audio: true })
     }
 
     listen();
-  })
-  .catch(() => {
-    instructions.innerText =
-      "🎤 Please allow microphone access to blow out the candles!";
   });
+});
 
-/* =========================
-   HANDLE WINDOW RESIZE
-========================= */
+/* ---------- RESIZE ---------- */
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
