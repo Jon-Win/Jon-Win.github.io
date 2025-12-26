@@ -7,24 +7,33 @@
 </head>
 <body>
 
-  <h1>🎉 Happy Birthday!!! 🎉</h1>
-
-  <p class="instructions" id="instructions">
-    Click start, allow microphone access, then <strong>blow into your mic</strong> 🎤
-  </p>
-
-  <button id="startBtn">Start 🎂</button>
-
-  <div id="cake-container">
-    <div id="candles"></div>
-    <div id="cake">
-      <div class="cake-layer layer-top"></div>
-      <div class="cake-layer layer-middle"></div>
-      <div class="cake-layer layer-bottom"></div>
-    </div>
+  <div id="password-container">
+    <h1>Enter Password to Open 🎂</h1>
+    <input type="password" id="password-input" placeholder="Enter password">
+    <button id="password-btn">Submit</button>
+    <p id="password-msg"></p>
   </div>
 
-  <canvas id="confetti"></canvas>
+  <div id="birthday-site" style="display: none;">
+    <h1>🎉 Happy Birthday!!! 🎉</h1>
+
+    <p class="instructions" id="instructions">
+      Click start, allow microphone access, then <strong>blow into your mic</strong> 🎤
+    </p>
+
+    <button id="startBtn">Start 🎂</button>
+
+    <div id="cake-container">
+      <div id="candles"></div>
+      <div id="cake">
+        <div class="cake-layer layer-top"></div>
+        <div class="cake-layer layer-middle"></div>
+        <div class="cake-layer layer-bottom"></div>
+      </div>
+    </div>
+
+    <canvas id="confetti"></canvas>
+  </div>
 
   <script src="script.js"></script>
 </body>
