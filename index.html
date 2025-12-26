@@ -1,181 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Happy Birthday!</title>
-<style>
-  body {
-    background-color: #cce7ff; /* Light blue background */
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    text-align: center;
-    padding-top: 50px;
-    overflow-x: hidden;
-    position: relative;
-    margin: 0;
-    height: 100vh;
-  }
-  h1, .cake, p, button, img {
-    position: relative;
-    z-index: 2;
-  }
-  h1 {
-    color: #0077b6;
-    font-size: 3em;
-  }
-  .cake {
-    font-size: 5em;
-  }
-  button {
-    background-color: #0077b6;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  button:hover {
-    background-color: #005f87;
-  }
-  img {
-    margin-top: 20px;
-    border-radius: 12px;
-    max-width: 80%;
-    height: auto;
-  }
-  p {
-    color: #005f87;
-  }
-
-  /* Falling money container */
-  #moneyFall {
-    pointer-events: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    z-index: 1;
-  }
-
-  .dollar {
-    position: absolute;
-    top: -2em;
-    color: #2ecc71;
-    animation-name: fall;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    user-select: none;
-  }
-
-  @keyframes fall {
-    0% {
-      transform: translateY(-2em) rotate(0deg);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(110vh) rotate(360deg);
-      opacity: 0;
-    }
-  }
-
-  /* Falling eggplants container */
-  #eggplantFall {
-    pointer-events: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    z-index: 0; /* Behind moneyFall */
-  }
-
-  .eggplant {
-    position: absolute;
-    top: -4em; /* Start a bit higher */
-    color: #993399; /* Eggplant purple */
-    font-size: 3em; /* Bigger than money */
-    animation-name: slowFall;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    user-select: none;
-    opacity: 0.8;
-  }
-
-  @keyframes slowFall {
-    0% {
-      transform: translateY(-4em) rotate(0deg);
-      opacity: 0.9;
-    }
-    100% {
-      transform: translateY(110vh) rotate(360deg);
-      opacity: 0;
-    }
-  }
-</style>
+  <meta charset="UTF-8">
+  <title>Happy Birthday 🎉</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🎉 Happy Birthday! 🎉</h1>
-  <div class="cake">🎂🎂🎂🎂🎂</div>
-  <p>Have an awesome day full of adventure and fun!</p>
-  <div class="cake">🎂🎂🎂🎂🎂</div>
 
-  <button onclick="showMessage()">Click for a Surprise!</button>
-  <p id="surprise" style="display:none; margin-top:20px;">🎈🎈🎈 You're the best! 🎈🎈🎈</p>
+  <h1>🎂 Happy Birthday!!! 🎂</h1>
+  <p>Click the button below 👀</p>
 
-  <div id="moneyFall"></div>
-  <div id="eggplantFall"></div>
+  <button onclick="surprise()">Open your gift 🎁</button>
 
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <p id="message" style="display:none;">
+    You make life brighter every day 💖  
+    I’m so lucky to have you!
+  </p>
 
-  <script>
-    function showMessage() {
-      document.getElementById('surprise').style.display = 'block';
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 }
-      });
-    }
-
-    function createFallingMoney() {
-      const container = document.getElementById('moneyFall');
-      const dollarCount = 40; // more dollars for better effect
-
-      for (let i = 0; i < dollarCount; i++) {
-        const dollar = document.createElement('div');
-        dollar.classList.add('dollar');
-        dollar.style.left = Math.random() * window.innerWidth + 'px';
-        dollar.style.fontSize = (Math.random() * 1 + 1) + 'em'; // size between 1em and 2em
-        dollar.style.animationDuration = (Math.random() * 5 + 5) + 's'; // 5-10 seconds
-        dollar.style.animationDelay = (Math.random() * 10) + 's'; // stagger start
-        dollar.textContent = '💵';
-        container.appendChild(dollar);
-      }
-    }
-
-    function createFallingEggplants() {
-      const container = document.getElementById('eggplantFall');
-      const eggplantCount = 10; // fewer and bigger
-
-      for (let i = 0; i < eggplantCount; i++) {
-        const eggplant = document.createElement('div');
-        eggplant.classList.add('eggplant');
-        eggplant.style.left = Math.random() * window.innerWidth + 'px';
-        eggplant.style.animationDuration = (Math.random() * 10 + 15) + 's'; // slower, 15-25 sec
-        eggplant.style.animationDelay = (Math.random() * 20) + 's'; // stagger start
-        eggplant.textContent = '🍆';
-        container.appendChild(eggplant);
-      }
-    }
-
-    window.onload = () => {
-      createFallingMoney();
-      createFallingEggplants();
-    };
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
