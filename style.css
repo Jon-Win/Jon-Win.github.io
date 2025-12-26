@@ -2,11 +2,11 @@ body {
   background: linear-gradient(135deg, #ffb6c1, #dda0dd);
   text-align: center;
   font-family: Arial, sans-serif;
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 46px;
 }
 
 .instructions {
@@ -20,20 +20,50 @@ button {
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+/* ===== CAKE ===== */
+#cake-container {
+  position: relative;
+  width: 420px;
+  margin: 0 auto;
 }
 
 #cake {
-  margin-top: 20px;
+  position: relative;
+  width: 100%;
+  height: 180px;
 }
 
-.candles {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px;
-  max-width: 360px;
-  margin: 0 auto;
+.icing {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background: #fff0f5;
+  border-radius: 20px 20px 10px 10px;
+}
+
+.cake-body {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 140px;
+  background: #d2691e;
+  border-radius: 20px;
+}
+
+/* ===== CANDLES ===== */
+#candles {
+  position: absolute;
+  top: -60px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 12px;
+  justify-items: center;
+  z-index: 5;
 }
 
 .candle {
@@ -54,7 +84,6 @@ button {
   border-radius: 50%;
   transform-origin: center bottom;
   animation: flicker 0.15s infinite;
-  display: block;
   opacity: 1;
   transform: scale(1);
 }
@@ -65,11 +94,7 @@ button {
   100% { transform: scale(1); }
 }
 
-.cake-body {
-  font-size: 90px;
-  margin-top: -10px;
-}
-
+/* ===== CONFETTI ===== */
 canvas {
   position: fixed;
   top: 0;
