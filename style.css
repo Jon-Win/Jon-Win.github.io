@@ -15,15 +15,43 @@ h1 {
 }
 
 #cake {
-  font-size: 80px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
-#candles {
-  font-size: 40px;
+.candles {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.candle {
+  width: 10px;
+  height: 40px;
+  background: white;
+  border-radius: 3px;
+  position: relative;
+}
+
+.flame {
+  width: 16px;
+  height: 24px;
+  background: radial-gradient(circle at 50% 60%, #fff176, #ff9800, #f44336);
+  position: absolute;
+  top: -24px;
+  left: -3px;
+  border-radius: 50%;
+  transform-origin: center bottom;
+  animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.9, 1.1); }
+  100% { transform: scale(1); }
 }
 
 .cake-body {
+  font-size: 90px;
   margin-top: -10px;
 }
 
