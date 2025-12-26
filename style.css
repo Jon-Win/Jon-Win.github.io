@@ -16,7 +16,7 @@ h1 {
 
 button {
   font-size: 18px;
-  padding: 10px 20px;
+  padding: 10px 22px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -29,8 +29,11 @@ button {
 
 .candles {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 14px;
+  max-width: 360px;
+  margin: 0 auto;
 }
 
 .candle {
@@ -51,9 +54,9 @@ button {
   border-radius: 50%;
   transform-origin: center bottom;
   animation: flicker 0.15s infinite;
-  display: block;          /* 🔑 force visible */
-  opacity: 1;              /* 🔑 force visible */
-  transform: scale(1);     /* 🔑 force visible */
+  display: block;
+  opacity: 1;
+  transform: scale(1);
 }
 
 @keyframes flicker {
