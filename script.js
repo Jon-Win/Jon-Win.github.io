@@ -1,5 +1,5 @@
 /* ========== PASSWORD PROTECTION ========== */
-const PASSWORD = "happybirthday"; // change this to any password
+const PASSWORD = "happybirthday"; // Change to your password
 const passwordContainer = document.getElementById("password-container");
 const passwordInput = document.getElementById("password-input");
 const passwordBtn = document.getElementById("password-btn");
@@ -10,26 +10,25 @@ passwordBtn.addEventListener("click", () => {
   if (passwordInput.value === PASSWORD) {
     passwordContainer.style.display = "none";
     birthdaySite.style.display = "block";
+    initBirthdaySite();
   } else {
     passwordMsg.textContent = "Incorrect password! Try again.";
     passwordMsg.style.color = "red";
   }
 });
 
-/* ========== CANDLE + CONFETTI LOGIC ========== */
-// Wait until password is correct
-passwordBtn.addEventListener("click", () => {
-  if (passwordInput.value !== PASSWORD) return;
+/* ========== BIRTHDAY SITE LOGIC ========== */
+function initBirthdaySite() {
+  const cakeSection = document.getElementById("cake-section");
+  const celebrationSection = document.getElementById("celebration-section");
 
   /* CREATE 20 CANDLES */
   const candlesContainer = document.getElementById("candles");
   for (let i = 0; i < 20; i++) {
     const candle = document.createElement("div");
     candle.className = "candle";
-
     const flame = document.createElement("div");
     flame.className = "flame";
-
     candle.appendChild(flame);
     candlesContainer.appendChild(candle);
   }
@@ -116,6 +115,12 @@ passwordBtn.addEventListener("click", () => {
           flames.forEach(f => f.style.display = "none");
           instructions.innerHTML = "🎉 Make a wish!!! 🎉";
           startConfetti();
+
+          // Smooth transition: hide cake, show celebration
+          setTimeout(() => {
+            cakeSection.style.display = "none";
+            celebrationSection.style.display = "block";
+          }, 3000);
         }
 
         requestAnimationFrame(listen);
@@ -129,4 +134,4 @@ passwordBtn.addEventListener("click", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   });
-});
+}
