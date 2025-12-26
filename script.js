@@ -1,3 +1,19 @@
+/* =========================
+   CREATE 20 CANDLES
+========================= */
+const candlesContainer = document.getElementById("candles");
+
+for (let i = 0; i < 20; i++) {
+  const candle = document.createElement("div");
+  candle.className = "candle";
+
+  const flame = document.createElement("div");
+  flame.className = "flame";
+
+  candle.appendChild(flame);
+  candlesContainer.appendChild(candle);
+}
+
 const flames = document.querySelectorAll(".flame");
 const instructions = document.getElementById("instructions");
 const startBtn = document.getElementById("startBtn");
@@ -5,7 +21,9 @@ const startBtn = document.getElementById("startBtn");
 let flamePower = 1;
 let blownOut = false;
 
-/* ---------- CONFETTI ---------- */
+/* =========================
+   CONFETTI
+========================= */
 const canvas = document.getElementById("confetti");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
@@ -19,7 +37,7 @@ function startConfetti() {
   confettiActive = true;
   confetti = [];
 
-  for (let i = 0; i < 250; i++) {
+  for (let i = 0; i < 300; i++) {
     confetti.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
@@ -44,15 +62,17 @@ function drawConfetti() {
   requestAnimationFrame(drawConfetti);
 }
 
-/* ---------- START BUTTON (CRITICAL FIX) ---------- */
+/* =========================
+   START BUTTON (CHROME SAFE)
+========================= */
 startBtn.addEventListener("click", () => {
   startBtn.style.display = "none";
   instructions.innerHTML =
-    "🎤 Blow into your mic to slowly put out the candles!";
+    "🎤 Blow steadily into your mic to slowly put out all 20 candles!";
 
   navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
     const audioContext = new AudioContext();
-    audioContext.resume(); // 🔑 Chrome fix
+    audioContext.resume();
 
     const mic = audioContext.createMediaStreamSource(stream);
     const analyser = audioContext.createAnalyser();
@@ -66,7 +86,7 @@ startBtn.addEventListener("click", () => {
       const volume = data.reduce((a, b) => a + b) / data.length;
 
       if (volume > 40 && flamePower > 0) {
-        flamePower -= volume * 0.0008;
+        flamePower -= volume * 0.0006;
         flamePower = Math.max(flamePower, 0);
       }
 
@@ -89,7 +109,9 @@ startBtn.addEventListener("click", () => {
   });
 });
 
-/* ---------- RESIZE ---------- */
+/* =========================
+   RESIZE
+========================= */
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
