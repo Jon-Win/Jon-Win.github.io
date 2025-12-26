@@ -2,26 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Happy Birthday 🎉</title>
+  <title>Happy Birthday 🎂</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>🎂 Happy Birthday!!! 🎂</h1>
-
-  <h2 id="countdown"></h2>
+  <h1>🎉 Happy Birthday!!! 🎉</h1>
 
   <p class="instructions">
-    🎤 Allow microphone access, then <strong>blow into your mic</strong> to blow out the candles!
+    🎤 Allow microphone access and <strong>blow into your mic</strong> to blow out the candles!
   </p>
 
-  <!-- Cake -->
   <div id="cake">
-    <div id="candles">🕯️ 🕯️ 🕯️</div>
+    <div class="candles">
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+    </div>
     <div class="cake-body">🍰</div>
   </div>
 
-  <!-- Confetti canvas -->
   <canvas id="confetti"></canvas>
 
   <script src="script.js"></script>
