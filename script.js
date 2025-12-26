@@ -68,7 +68,7 @@ function drawConfetti() {
 startBtn.addEventListener("click", () => {
   startBtn.style.display = "none";
   instructions.innerHTML =
-    "🎤 Blow steadily into your mic to slowly put out all 20 candles!";
+    "🎤 Blow steadily to put out all the candles!";
 
   navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
     const audioContext = new AudioContext();
