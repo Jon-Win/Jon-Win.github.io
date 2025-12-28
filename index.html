@@ -9,21 +9,21 @@
 
   <!-- PASSWORD SCREEN -->
   <div id="password-container">
-    <h1>Enter Password to Open 🎂</h1>
-    <input type="password" id="password-input" placeholder="Enter password">
-    <button id="password-btn">Submit</button>
+    <h1>Enter Password 🎂</h1>
+    <input type="password" id="password-input" placeholder="Password">
+    <button id="password-btn">Enter</button>
     <p id="password-msg"></p>
   </div>
 
-  <!-- BIRTHDAY SITE -->
-  <div id="birthday-site" style="display: none;">
+  <!-- MAIN SITE -->
+  <div id="birthday-site" style="display:none;">
+
+    <!-- CAKE SECTION -->
     <div id="cake-section">
       <h1>🎉 Happy Birthday!!! 🎉</h1>
-
       <p class="instructions" id="instructions">
         Click start, allow microphone access, then <strong>blow into your mic</strong> 🎤
       </p>
-
       <button id="startBtn">Start 🎂</button>
 
       <div id="cake-container">
@@ -36,13 +36,13 @@
       </div>
     </div>
 
-    <!-- Celebration section hidden initially -->
-    <div id="celebration-section" style="display: none;">
+    <!-- CELEBRATION SECTION -->
+    <div id="celebration-section" style="display:none;">
       <h1>🎂 Happy Birthday! 🎂</h1>
-      <img src="birthday-person.jpg" alt="Birthday Person" id="birthday-photo">
-      <audio id="birthday-song" autoplay>
+      <img src="birthday-person.jpg" id="birthday-photo">
+
+      <audio id="birthday-song">
         <source src="Taylor Swift - Lover (Official Music Video).mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
       </audio>
     </div>
 
