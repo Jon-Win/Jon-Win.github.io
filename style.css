@@ -3,10 +3,12 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
   padding-top: 40px;
+  margin: 0;
 }
 
 h1 {
-  font-size: 44px;
+  font-size: 42px;
+  margin-bottom: 10px;
 }
 
 .instructions {
@@ -20,85 +22,31 @@ button {
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  background: #ff69b4;
+  color: white;
 }
 
-/* CAKE */
-#cake-container {
-  position: relative;
-  width: 500px;
-  margin: 40px auto;
+button:hover {
+  background: #ff4fa3;
 }
 
-#cake {
-  height: 240px;
+/* ---------------- PASSWORD ---------------- */
+
+#password-container {
+  margin-top: 120px;
 }
 
-.cake-layer {
-  width: 100%;
-  border-radius: 20px;
-  margin-bottom: 5px;
+#password-input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-.layer-top {
-  height: 60px;
-  background: linear-gradient(#ffe4f0, #ffb6c1);
-}
-.layer-middle {
-  height: 80px;
-  background: linear-gradient(#ffe0b2, #ff9966);
-}
-.layer-bottom {
-  height: 100px;
-  background: linear-gradient(#d2691e, #8b4513);
-}
+/* ---------------- CAKE ---------------- */
 
-/* CANDLES */
-#candles {
-  position: absolute;
-  top: -70px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 12px;
-}
-
-.candle {
-  width: 12px;
-  height: 45px;
-  background: #fff8dc;
-  border-radius: 3px;
-  position: relative;
-}
-
-.flame {
-  width: 16px;
-  height: 24px;
-  position: absolute;
-  top: -24px;
-  left: -2px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #fff176, #ff9800, #f44336);
-  animation: flicker 0.15s infinite;
-}
-
-@keyframes flicker {
-  0% { transform: scale(1); }
-  50% { transform: scale(0.9, 1.1); }
-  100% { transform: scale(1); }
-}
-
-/* CELEBRATION */
-#birthday-photo {
-  width: 300px;
-  border-radius: 20px;
+#cake-section {
   margin-top: 30px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.3);
 }
 
-/* CONFETTI */
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-}
+#cake-c
