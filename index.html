@@ -7,53 +7,53 @@
 </head>
 <body>
 
-  <!-- PASSWORD SCREEN -->
-  <div id="password-container">
-    <h1>Enter Password 🎂</h1>
-    <input type="password" id="password-input" placeholder="Password">
-    <button id="password-btn">Enter</button>
-    <p id="password-msg"></p>
-  </div>
+<!-- PASSWORD -->
+<div id="password-container">
+  <h1>Enter Password 🎂</h1>
+  <input type="password" id="password-input" placeholder="Password">
+  <br><br>
+  <button id="password-btn">Enter</button>
+  <p id="password-msg"></p>
+</div>
 
-  <!-- MAIN SITE -->
-  <div id="birthday-site" style="display:none;">
+<!-- MAIN -->
+<div id="birthday-site" class="hidden">
 
-    <!-- CAKE SECTION -->
-    <div id="cake-section">
-      <h1>🎉 Happy Birthday!!! 🎉</h1>
-      <p class="instructions" id="instructions">
-        Click start, allow microphone access, then <strong>blow into your mic</strong> 🎤
-      </p>
-      <button id="startBtn">Start 🎂</button>
+  <!-- CAKE PAGE -->
+  <div id="cake-section">
+    <h1>🎉 Happy Birthday! 🎉</h1>
+    <p id="instructions">Click start, allow mic, then blow 🎤</p>
+    <button id="startBtn">Start 🎂</button>
 
-      <div id="cake-container">
-        <div id="candles"></div>
-        <div id="cake">
-          <div class="cake-layer layer-top"></div>
-          <div class="cake-layer layer-middle"></div>
-          <div class="cake-layer layer-bottom"></div>
-        </div>
+    <div id="cake-container">
+      <div id="candles"></div>
+
+      <div id="cake">
+        <div class="cake-layer top"></div>
+        <div class="cake-layer mid"></div>
+        <div class="cake-layer bot"></div>
       </div>
     </div>
-
-    <!-- CELEBRATION SECTION -->
-    <div id="celebration-section" style="display:none;">
-      <h1>🎂 Happy Birthday! 🎂</h1>
-
-      <div id="photo-gallery">
-        <img src="IMG_2597.jpg" class="birthday-photo">
-        <img src="71D7BCC6-2961-42CB-A3A6-5898F44F45F5.JPG" id="birthday-photo">
-        <img src="IMG_3083.jpg" class="birthday-photo">
-      </div>
-
-      <audio id="birthday-song">
-        <source src="Taylor Swift - Lover (Official Music Video).mp3" type="audio/mpeg">
-      </audio>
-    </div>
-
-    <canvas id="confetti"></canvas>
   </div>
 
-  <script src="script.js"></script>
+  <!-- FINAL PAGE -->
+  <div id="celebration-section" class="hidden">
+    <h1>🎂 Happy Birthday! 🎂</h1>
+
+    <div id="photo-gallery">
+      <img src="IMG_2597.jpg" class="birthday-photo">
+      <img src="71D7BCC6-2961-42CB-A3A6-5898F44F45F5.JPG" id="birthday-photo">
+      <img src="IMG_3083.jpg" class="birthday-photo">
+    </div>
+
+    <audio id="birthday-song">
+      <source src="Taylor Swift - Lover (Official Music Video).mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <canvas id="confetti"></canvas>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
