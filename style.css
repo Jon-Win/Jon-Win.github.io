@@ -1,24 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden; /* 🚫 NO SCROLL */
   background: linear-gradient(135deg, #ffe6f0, #ffd8b1);
   font-family: Arial, sans-serif;
   text-align: center;
-  padding-top: 40px;
-  margin: 0;
 }
 
-h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
-}
-
-.instructions {
-  font-size: 18px;
-  margin-bottom: 15px;
+/* UTIL */
+.hidden {
+  display: none;
 }
 
 button {
-  font-size: 18px;
   padding: 10px 24px;
+  font-size: 18px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -26,27 +26,101 @@ button {
   color: white;
 }
 
-button:hover {
-  background: #ff4fa3;
-}
-
-/* ---------------- PASSWORD ---------------- */
-
+/* PASSWORD */
 #password-container {
-  margin-top: 120px;
+  margin-top: 140px;
 }
 
-#password-input {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+/* CAKE */
+#cake-container {
+  position: relative;
+  width: 520px;
+  margin: 40px auto 0;
 }
 
-/* ---------------- CAKE ---------------- */
+#cake {
+  height: 240px;
+}
 
-#cake-section {
+.cake-layer {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}
+
+.top {
+  height: 60px;
+  background: linear-gradient(#ffe4f0, #ffb6c1);
+}
+
+.mid {
+  height: 80px;
+  background: linear-gradient(#ffe0b2, #ff9966);
+}
+
+.bot {
+  height: 100px;
+  background: linear-gradient(#d2691e, #8b4513);
+}
+
+/* CANDLES */
+#candles {
+  position: absolute;
+  top: -60px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 12px;
+}
+
+.candle {
+  width: 12px;
+  height: 45px;
+  background: #fff8dc;
+  border-radius: 3px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.flame {
+  width: 16px;
+  height: 24px;
+  position: absolute;
+  top: -24px;
+  left: -2px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff176, #ff9800, #f44336);
+  animation: flicker 0.15s infinite;
+}
+
+/* FINAL PAGE */
+#celebration-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 🚨 THIS IS THE IMPORTANT PART */
+#photo-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
   margin-top: 30px;
 }
 
-#cake-c
+/* FIXED SIZE — NO HUGE PHOTOS */
+.birthday-photo {
+  width: 220px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
