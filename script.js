@@ -65,10 +65,16 @@ function setup() {
           finished = true;
           setTimeout(() => {
             cake.classList.add("hidden");
-            final.classList.remove("hidden");
+            const celebration = document.getElementById("celebration-section");
+            celebration.style.display = "flex";  // 🔥 SHOW ONLY NOW
+            const song = document.getElementById("birthday-song");
             song.play();
           }, 1500);
         }
+
+
+
+        
 
         requestAnimationFrame(listen);
       }
