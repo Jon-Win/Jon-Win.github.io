@@ -1,21 +1,5 @@
-const PASSWORD = "happybirthday";
-
-const pwBtn = document.getElementById("password-btn");
-const pwInput = document.getElementById("password-input");
-const pwMsg = document.getElementById("password-msg");
-const pwScreen = document.getElementById("password-container");
-const site = document.getElementById("birthday-site");
-
-pwBtn.onclick = () => {
-  if (pwInput.value === PASSWORD) {
-    pwScreen.classList.add("hidden");
-    site.classList.remove("hidden");
-    setup();
-  } else {
-    pwMsg.textContent = "Wrong password!";
-    pwMsg.style.color = "red";
-  }
-};
+// Run setup immediately since the password page is gone
+window.onload = setup;
 
 function setup() {
   const candlesDiv = document.getElementById("candles");
@@ -40,7 +24,7 @@ function setup() {
   let finished = false;
 
   startBtn.onclick = () => {
-    startBtn.style.display = "none"; // Hide button after clicking
+    startBtn.style.display = "none"; 
     navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
       const ctx = new AudioContext();
       const mic = ctx.createMediaStreamSource(stream);
@@ -52,7 +36,7 @@ function setup() {
         analyser.getByteFrequencyData(data);
         const vol = data.reduce((a, b) => a + b) / data.length;
 
-        if (vol > 35) power -= 0.02; // Faster blowing
+        if (vol > 35) power -= 0.02; 
         power = Math.max(power, 0);
 
         flames.forEach(f => {
